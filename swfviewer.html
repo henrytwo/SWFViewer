@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SWF Viewer - By Henry Tu</title>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<input id="the-file-input" type="file">
+<div id="primary-frame">
+
+</div>
+
+
+</body>
+
+<script>
+    $("#the-file-input").change(function() {
+        // will log a FileList object, view gifs below
+        console.log(this.files)
+
+        localStorage.path = this.files[0]['name'];
+
+        $('#primary-frame').html('<embed id="primary-frame" src="' + localStorage.path + '" style="width: 100vw; height: 100vh; border-color: black; border: solid 1px;">');
+
+
+        /*
+        var rawFile = this.files[0];
+
+        var reader = new FileReader();
+
+        reader.onload = function(event) {
+            var url = event.target.result;
+
+            $('#primary-frame').html('<embed id="primary-frame" src="' + url + '" style="width: 100vw; height: 100vh; border-color: black; border: solid 1px;">');
+        }
+
+        reader.readAsDataURL(rawFile);
+
+        console.log('Done')*/
+
+    });
+</script>
+
+</html>
